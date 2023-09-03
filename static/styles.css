@@ -1,0 +1,576 @@
+/* Ogólne style dla całego dokumentu */
+body {
+    font-family: Arial, sans-serif; /* Ustawia domyślną czcionkę dla tekstu na Arial lub inny bezszeryfowy krój czcionki. */
+    margin: 0; /* Eliminuje domyślne zewnętrzne marginesy elementu body. */
+    padding: 0; /* Eliminuje domyślne wewnętrzne odstępy elementu body. */
+    background-color: #ADD8E6;/*#f4f4f4; /* Ustawia jasny odcień szarości jako kolor tła dokumentu. */
+}
+
+/* Rozmieszczenie pól z datami */
+.form-row {
+    display: flex; /* Ustawia elementy wewnątrz .form-row w układzie flex, umożliwiając kontrolę nad rozmieszczeniem. */
+    align-items: center; /* Wyśrodkowuje zawartość w pionie wewnątrz .form-row. */
+    margin-bottom: 5px; /* Dodaje odstęp między poszczególnymi wierszami formularza. */
+}
+/* Dodaj marginesy dla etykiet i pól w formularzu */
+.form-section label,
+.form-section input,
+.form-section select,
+.form-section button,
+.form-section ul.receipt-list {
+    margin-top: 5px; /* Dostosuj wartość marginesu według potrzeb - margines między label-input*/
+    margin-bottom: 25px /* margines między elementami */
+}
+/* Dodaj margines między etykietami a polami oraz przyciskami */
+.form-section label {
+    margin-bottom: 40px; /* Dostosuj wartość marginesu według potrzeb */
+}
+
+/* Styl sekcji formularza z polem daty */
+.form-section.date-field {
+    width: fit-content; /* Ustawia szerokość sekcji formularza na minimalną wymaganą szerokość zawartości. */
+    margin-right: 20px; /* Dodaje margines z prawej strony sekcji formularza, dostosowany do potrzeb. */
+}
+
+/* Dodatkowy styl dla poszerzonych pól dat */
+.wide-date-field {
+    width: auto; /* Umożliwia polom dat elastyczną szerokość, dostosowując się do zawartości. */
+    margin-right: 20px; /* Dodaje margines z prawej strony pola daty, dostosowany do potrzeb. */
+}
+
+/* Styl poszczególnych sekcji formularza */
+.form-section {
+    display: flex; /* Ustawia sekcje formularza w układzie flex, umożliwiając kontrolę nad rozmieszczeniem. */
+    flex-direction: column; /* Układ kolumnowy dla elementów wewnątrz sekcji formularza. */
+    align-items: flex-start; /* Wyśrodkowuje zawartość w lewo wewnątrz sekcji formularza. */
+    margin-bottom: 20px; /* Dodaje odstęp między sekcjami formularza, zwiększając odległość. */
+}
+
+/* Styl pseudo-elementu ::after dla elementu .form-row */
+.form-row::after {
+    content: ""; /* Dodaje pusty zawartość po elementach .form-row. */
+    display: table; /* Zmienia element na tabelę dla właściwości 'clear'. */
+    clear: both; /* Czyści elementy znajdujące się po bokach, aby uniknąć owijania. */
+}
+
+/* Styl kontenera na treść strony */
+.container {
+    max-width: 600px; /* Określa maksymalną szerokość kontenera na 600 pikseli. */
+    margin: 0 auto; /* Automatycznie wyśrodkowuje kontener na stronie. */
+    padding: 20px; /* Dodaje wewnętrzne odstępy o wielkości 20 pikseli. */
+    background-color: #fff; /* Ustawia białe tło dla kontenera. */
+    border-radius: 5px; /* Zaokrągla narożniki kontenera o promieniu 5 pikseli. */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Dodaje cień do kontenera dla efektu wizualnego. */
+}
+/* Kolumny w opcjach Admin. */
+.admincontainer {
+    display: flex;
+    grid-template-columns: repeat(2, 1fr); /* Dwie kolumny */
+    gap: 40px; /* Odstęp między kolumnami i wierszami */
+    align-items: flex-start; /*  Wyrównanie w pionie */
+    justify-content: space-between; /* Wyrównanie w poziomie */
+}
+
+.form-column {
+    display: flex;
+    flex-direction: column;
+    /*align-items: flex-start;  Wyrównanie do góry kolumny */
+    align-self: start; /* Wyrównanie kolumn z prawej do kolumn z lewej */
+    flex: 1;
+    margin-right: 260px; /* Dodanie marginesu do kolumny z prawej strony */
+
+}
+
+/* Styl pola "Suma paragonów" */
+.total-receipts-field {
+    margin-top: 20px; /* Dodaje odstęp górny o wysokości 10 pikseli. */
+}
+
+/* Styl listy paragonów */
+.receipt-list {
+    margin-top: 10px; /* Dodaje odstęp górny o wysokości 10 pikseli. */
+}
+
+/* Styl ikony kalendarza w polu daty */
+.date-input .calendar-icon {
+    font-size: 18px; /* Ustawia rozmiar ikony na 18 pikseli. */
+    position: absolute; /* Ustawia pozycję ikony na absolutną wewnątrz pola daty. */
+    right: 10px; /* Ustawia odstęp z prawej strony na 10 pikseli. */
+    top: 50%; /* Ustawia pozycję wertykalną na środek. */
+    transform: translateY(-50%); /* Przesuwa ikonę wertykalnie o 50% jej własnej wysokości do góry. */
+    cursor: pointer; /* Ustawia kursor na wskaźnik, wskazujący na interaktywny element. */
+}
+
+/* Styl kontenerów paragonów */
+.column {
+    width: 50%; /* Ustawia szerokość kontenera na 50% szerokości dostępnego miejsca. */
+    display: inline-block; /* Ustawia wyświetlanie kontenera w linii obok siebie. */
+    box-sizing: border-box; /* Zapobiega zwiększeniu szerokości kontenera przez marginesy i padding. */
+    padding: 5px; /* Dodaje wewnętrzne odstępy wewnątrz kontenera. */
+}
+
+/* Styl dla checkboxów */
+input[type="checkbox"] {
+    width: 20px; /* Ustawia szerokość checkboxa na 20 pikseli. */
+    height: 20px; /* Ustawia wysokość checkboxa na 20 pikseli. */
+    margin-right: 50px; /* Dodaje margines z prawej strony o szerokości 50 pikseli. */
+}
+
+/* Styl dla etykiet checkboxów "Zastosuj dietę" i "Zastosuj przebieg samochodu" */
+label[for="apply-diet"],
+label[for="apply-car"] {
+    display: inline-block; /* Ustawia wyświetlanie etykiety w linii. */
+    vertical-align: middle; /* Wyrównuje etykietę pionowo do środka elementu nadrzędnego. */
+    margin-right: 15px; /* Dodaje margines z prawej strony o szerokości 15 pikseli. */
+}
+
+/* Styl dla pola "Wyłącz dietę w dniach" wewnątrz .date-input */
+.date-input input[type="text"] {
+    height: 38px; /* Ustawia wysokość pola tekstowego na 38 pikseli. */
+}
+
+/* Styl dla kontenera pola daty */
+.date-input {
+    position: relative; /* Ustawia pozycję kontenera na relatywną. */
+    display: inline-block; /* Ustawia wyświetlanie kontenera w linii. */
+}
+
+/* Styl dla pola "Wyłącz dietę w dniach" */
+.date-input input[type="text"] {
+    padding: 0.5rem; /* Dodaje wewnętrzny odstęp o wysokości 0.5 rem (relatywnie do czcionki). */
+    border: 1px solid #ccc; /* Ustawia obramowanie o grubości 1 piksela i kolorze #ccc. */
+    border-radius: 4px; /* Zaokrągla narożniki pola o promieniu 4 pikseli. */
+    font-size: 1rem; /* Ustawia rozmiar czcionki na 1 rem. */
+    width: 30%; /* Ustawia szerokość pola na 100% szerokości dostępnego miejsca. */
+    box-sizing: border-box; /* Zapobiega zwiększeniu szerokości pola przez marginesy i obramowanie. */
+    height: 38px; /* Ustawia wysokość pola na 38 pikseli. */
+}
+
+/* Styl poszczególnych sekcji formularza */
+.form-section {
+    display: flex; /* Ustawia wyświetlanie sekcji jako kontenera flexowego. */
+    flex-direction: column; /* Ustawia układ elementów w sekcji na kolumnowy. */
+    align-items: flex-start; /* Wyrównuje elementy w sekcji do lewej krawędzi. */
+    margin-bottom: 20px; /* Dodaje odstęp na dole sekcji o wysokości 20 pikseli. */
+}
+
+/* Styl etykiet w formularzach */
+label {
+    margin-right: 10px; /* Dodaje margines z prawej strony etykiety o szerokości 10 pikseli. */
+}
+
+
+/* Styl pól numerycznych, rozwijanych list i pól daty w formularzach */
+input[type="number"],
+select,
+input[type="date"],
+input[type="text"][name="total-amount"],/*pole kwoty całkowitej*/
+input[type="date"][name="travel-date"],/*pole wyboru daty podróży (od).*/
+input[type="date"][name="second-travel-date"],/*pole wyboru daty podróży (do).*/
+input[type="number"][name="total-travel-days"] /*pole dni podróży*/{
+    width: auto; /* Ustawiamy elastyczną szerokość, dostosowując pole do zawartości */
+    padding: 10px; /* Dodajemy wewnętrzny odstęp wewnątrz pola */
+    margin-bottom: 10px; /* Dodajemy odstęp od dołu pól */
+    border: 1px solid #ccc; /* Dodajemy obramowanie o szerokości 1px */
+    border-radius: 4px; /* Zaokrąglamy narożniki pola */
+    font-size: 14px; /* Ustalamy rozmiar czcionki */
+    height: 15px; /* Ustalamy wysokość pól na 15px */
+}
+
+#disable-diet {
+    background-color: #00b300; /* Zielony kolor tła */
+    color: white; /*#ffffff !important; /* Dodaj !important, aby upewnić się, że to zastosuje się */
+    cursor: pointer;
+    outline: none;
+        padding: 10px; /* Dodajemy wewnętrzne odstępy o 10 pikseli do pola */
+        border: 1px solid #ccc; /* Dodajemy obramowanie o szerokości 1px */
+        border-radius: 4px; /* Zaokrąglamy narożniki pola */
+        font-size: 14px; /* Ustalamy rozmiar czcionki */
+        text-align: center; /* Wyśrodkowujemy tekst w poziomie */
+    transition: background-color 0.3s ease;
+}
+/* Dodatkowy specyficzny selektor dla pola #disable-diet */
+#disable-diet::placeholder {
+    color: white !important; /* Ustawiamy kolor tekstu w placeholderze na biały i dodajemy !important */
+}
+/* Styl dla etykiety zawierającej napis "Wyłącz dietę w dniach" */
+label[for="disable-diet"] {
+    display: flex; /* Ustawiamy wyświetlanie elementu jako kontenera flexowego */
+    align-items: center; /* Wyśrodkowujemy zawartość w pionie */
+    margin-right: 15px; /* Dodajemy margines z prawej strony o szerokości 15 pikseli */
+}
+
+/* Styl dla napisu "Wyłącz dietę w dniach" wewnątrz etykiety */
+label[for="disable-diet"] span {
+    margin: 0 auto; /* Wyśrodkowujemy tekst w poziomie */
+}
+
+#disable-diet:hover {
+    background-color: #008000; /* Ciemniejszy zielony kolor tła po najechaniu myszką */
+}
+
+/* Styl pola "Suma dni podróży" */
+#total-travel-days {
+    width: 45px; /* Ustawiamy szerokość pola na 45px, aby pomieścić 6 znaków */
+    height: 30px; /* Ustawiamy wysokość pola na 30px */
+    padding: 5px; /* Dodajemy wewnętrzny odstęp wewnątrz pola */
+    border: 1px solid #ccc; /* Dodajemy obramowanie o szerokości 1px */
+    border-radius: 4px; /* Zaokrąglamy narożniki pola */
+    font-size: 15px; /* Ustalamy rozmiar czcionki */
+    box-sizing: border-box; /* Zapobiegamy zwiększaniu szerokości przez marginesy i obramowanie */
+}
+
+/* Styl przycisków */
+button {
+    /*(display: block; /* Ustawia wyświetlanie przycisku jako blokowy element. */
+    margin: 0 auto; /* Wyśrodkowuje przycisk w poziomie wewnątrz jego rodzica. */
+    padding: 10px 20px; /* Dodaje wewnętrzne odstępy o 10 pikseli na górze/dole i 20 pikseli po bokach przycisku. */
+    font-size: 14px; /* Ustawia rozmiar czcionki na 14 pikseli. */
+    border: none; /* Usuwa obramowanie przycisku. */
+    border-radius: 5px; /* Zaokrągla narożniki przycisku. */
+    cursor: pointer; /* Zmienia kursor na wskaźnik, wskazujący na interaktywny element. */
+}
+
+/* Styl wyłączonych przycisków */
+button:disabled {
+    background-color: #ccc; /* Ustawia kolor tła na szary dla wyłączonych przycisków. */
+    cursor: not-allowed; /* Ustawia kursor na niedostępny, wskazujący na brak możliwości interakcji. */
+}
+
+/* Styl dodanych pól kwoty paragonu */
+.receipt-name-and-amount {
+    display: flex; /* Ustawia wyświetlanie zawartości w linii na osi poziomej. */
+    align-items: center; /* Wyrównuje elementy w pionie, aby były wyśrodkowane względem siebie. */
+    margin-bottom: 20px; /* Dodaje odstęp na dole sekcji o wysokości 20 pikseli. */
+}
+
+/* Styl całego paragonu */
+.receipt-container {
+    border: 1px solid #ccc; /* Dodaje obramowanie o szerokości 1 piksela i kolorze szarym. */
+    padding: 10px; /* Dodaje wewnętrzne odstępy o 10 pikseli do zawartości kontenera. */
+    border-radius: 5px; /* Zaokrągla narożniki kontenera. */
+    background-color: #f9f9f9; /* Ustawia kolor tła kontenera na jasnoszary. */
+}
+
+/* Dodatkowy styl dla drugiej kolumny */
+.receipt-container:nth-child(2n) {
+    margin-left: 4%; /* Dodaje odstęp między kolumnami, aby tworzyć efekt "szachownicy". */
+}
+
+/* Styl opisu paragonu */
+.receipt-description {
+    font-weight: bold; /* Ustawia pogrubienie tekstu opisu paragonu. */
+    margin-bottom: 5px; /* Dodaje odstęp na dole opisu o wysokości 5 pikseli. */
+}
+/* Styl pól kwoty paragonu */
+.receipt-amount {
+    padding: 5px; /* Dodaje wewnętrzne odstępy o 5 pikseli do zawartości pola kwoty. */
+    border: 1px solid #ccc; /* Dodaje obramowanie o szerokości 1 piksela i kolorze szarym. */
+    border-radius: 4px; /* Zaokrągla narożniki pola kwoty. */
+    font-size: 14px; /* Ustawia rozmiar czcionki na 14 pikseli. */
+    width: 100%; /* Szerokość pola kwoty dostosowana do szerokości kontenera. */
+    box-sizing: border-box; /* Zapobiega zmianie szerokości przez marginesy i padding. */
+}
+
+/* Styl przycisku usuwania paragonu */
+.delete-button {
+    background-color: #ff5555; /* Ustawia kolor tła przycisku na czerwony. */
+    color: white; /* Ustawia kolor tekstu przycisku na biały. */
+    border: none; /* Usuwa obramowanie przycisku. */
+    padding: 5px 10px; /* Dodaje wewnętrzne odstępy o 5 pikseli na górze/dole i 10 pikseli po bokach przycisku. */
+    cursor: pointer; /* Zmienia kursor na wskaźnik, wskazujący na interaktywny element. */
+    align-self: flex-end; /* Wyrównuje przycisk do prawego końca jego kontenera. */
+    margin-top: 5px; /* Dodaje odstęp na górze przycisku o wysokości 5 pikseli. */
+}
+
+/* Styl dla przycisku "Dodaj paragon" */
+#add-receipt {
+    margin-top: 10px; /* Dodaje odstęp na górze przycisku o wysokości 10 pikseli. */
+    padding: 10px 20px; /* Dodaje wewnętrzne odstępy o 10 pikseli na górze/dole i 20 pikseli po bokach przycisku. */
+    background-color: #009900; /* Ustawia kolor tła przycisku na zielony. */
+    color: #fff; /* Ustawia kolor tekstu przycisku na biały. */
+    border: none; /* Usuwa obramowanie przycisku. */
+    border-radius: 4px; /* Zaokrągla narożniki przycisku. */
+    cursor: pointer; /* Zmienia kursor na wskaźnik, wskazujący na interaktywny element. */
+}
+
+/* Styl dla listy paragonów */
+.receipt-list {
+    display: flex; /* Ustawia wyświetlanie listy w linii na osi poziomej. */
+    flex-wrap: wrap; /* Pozwala elementom na zawiijanie na nowej linii, gdy przekraczają szerokość kontenera. */
+    justify-content: space-between; /* Rozkłada elementy równomiernie po osi poziomej. */
+    padding: 0; /* Usuwa wewnętrzne odstępy wewnątrz listy. */
+    margin: 0 -5px; /* Usuwa domyślne marginesy i dodaje odstępy między kontenerami. */
+    list-style-type: none; /* Usuwa domyślną kropkę przed każdym elementem listy. */
+}
+/* Styl dla pola wyboru paragonu */
+#receipt-select {
+    width: 300px; /* Ustawia szerokość pola wyboru na 300 pikseli. */
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+/* Styl elementów listy paragonów */
+.receipt-list li {
+    flex-basis: calc(50% - 10px); /* Ustawia szerokość elementu listy na połowę szerokości kontenera minus 10 pikseli. */
+    padding: 5px; /* Dodaje wewnętrzne odstępy o 5 pikseli do zawartości elementu listy. */
+    box-sizing: border-box; /* Zapobiega zmianie szerokości przez marginesy i padding. */
+    width: 100%; /* Ustawia szerokość elementu na 100% szerokości dostępnego miejsca. */
+    margin: 0 5px; /* Dodaje odstęp po bokach elementu. */
+}
+
+/* Styl całego paragonu */
+.receipt-container {
+    border: 1px solid #ccc; /* Dodaje obramowanie o szerokości 1 piksela i kolorze szarym. */
+    padding: 10px; /* Dodaje wewnętrzne odstępy o 10 pikseli do zawartości kontenera. */
+    border-radius: 5px; /* Zaokrągla narożniki kontenera. */
+    background-color: #f9f9f9; /* Ustawia kolor tła kontenera na jasnoszary. */
+    display: flex; /* Ustawia wyświetlanie zawartości w linii na osi pionowej. */
+    flex-direction: column; /* Ustawia wyświetlanie zawartości w kolumnie. */
+    align-items: center; /* Wyrównuje zawartość w pionie, aby była wyśrodkowana. */
+    margin-bottom: 10px; /* Dodaje odstęp na dole kontenera o wysokości 10 pikseli. */
+}
+
+/* Styl dla pierwszego paragonu */
+.first-receipt {
+    margin-left: 0; /* Usuwa margines z lewej strony dla pierwszego paragonu. */
+}
+
+/* Dodaj styl dla pierwszego paragonu */
+.receipt-container.column.first-receipt {
+    margin-left: 0; /* Usuwa margines z lewej strony dla pierwszego paragonu w kontenerze kolumnowym. */
+}
+
+/* Dostosuj styl przycisku usuń */
+.delete-button {
+    background-color: #ff5555; /* Ustawia kolor tła przycisku na czerwony. */
+    color: white; /* Ustawia kolor tekstu przycisku na biały. */
+    border: none; /* Usuwa obramowanie przycisku. */
+    padding: 5px 10px; /* Dodaje wewnętrzne odstępy o 5 pikseli na górze/dole i 10 pikseli po bokach przycisku. */
+    cursor: pointer; /* Zmienia kursor na wskaźnik, wskazujący na interaktywny element. */
+    align-self: flex-start; /* Wyrównuje przycisk do lewego górnego rogu kontenera. */
+    margin-top: 5px; /* Dodaje odstęp na górze przycisku o wysokości 5 pikseli. */
+}
+
+/* Styl całego paragonu */
+.receipt-container {
+    border: 1px solid #ccc; /* Dodaje obramowanie o szerokości 1 piksela i kolorze szarym. */
+    padding: 10px; /* Dodaje wewnętrzne odstępy o 10 pikseli do zawartości kontenera. */
+    border-radius: 5px; /* Zaokrągla narożniki kontenera. */
+    background-color: #f9f9f9; /* Ustawia kolor tła kontenera na jasnoszary. */
+    display: flex; /* Ustawia wyświetlanie zawartości w linii na osi poziomej. */
+    flex-direction: row; /* Ustawia wyświetlanie zawartości w linii poziomej. */
+    justify-content: space-between; /* Rozkłada elementy równomiernie po osi poziomej. */
+    align-items: center; /* Wyśrodkowuje zawartość w pionie. */
+    margin-bottom: 10px; /* Dodaje odstęp na dole kontenera o wysokości 10 pikseli. */
+    width: 100%; /* Rozciąga element na całą szerokość. */
+}
+
+/* Styl opisu paragonu */
+.receipt-description {
+    font-weight: bold; /* Ustawia pogrubioną czcionkę dla opisu paragonu. */
+    margin-right: 10px; /* Dodaje odstęp z prawej strony między opisem a kwotą. */
+}
+
+/* Styl pól kwoty paragonu */
+.receipt-amount {
+    padding: 5px; /* Dodaje wewnętrzne odstępy o 5 pikseli do zawartości pola kwoty. */
+    border: 1px solid #ccc; /* Dodaje obramowanie o szerokości 1 piksela i kolorze szarym. */
+    border-radius: 4px; /* Zaokrągla narożniki pola kwoty. */
+    font-size: 14px; /* Ustawia rozmiar czcionki na 14 pikseli. */
+    width: 100%; /* Szerokość pola kwoty dostosowana do szerokości kontenera. */
+    box-sizing: border-box; /* Zapobiega zmianie szerokości przez marginesy i padding. */
+}
+
+/* Styl przycisku usuwania paragonu */
+.delete-button {
+    background-color: #ff5555; /* Ustawia kolor tła przycisku na czerwony. */
+    color: white; /* Ustawia kolor tekstu przycisku na biały. */
+    border: none; /* Usuwa obramowanie przycisku. */
+    padding: 5px 10px; /* Dodaje wewnętrzne odstępy o 5 pikseli na górze/dole i 10 pikseli po bokach przycisku. */
+    cursor: pointer; /* Zmienia kursor na wskaźnik, wskazujący na interaktywny element. */
+    margin-left: 10px; /* Dodaje odstęp z lewej strony między kwotą a przyciskiem. */
+}
+
+/* Styl dla pola do wprowadzania PIN-u */
+#admin-pin-input {
+    -webkit-appearance: none; /* Zapobiega domyślnej klawiaturze na urządzeniach mobilnych */
+    -moz-appearance: none;
+    appearance: none;
+    font-size: 16px;
+    padding: 10px;
+}
+
+/* Styl dla przycisku otwierającego sekcję administratora */
+#admin-options-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff5555; /* Ustawia kolor tła przycisku na czerwony. */
+    color: white; /* Ustawia kolor tekstu przycisku na biały. */
+    border: 1px solid #ccc; /* Dodaje obramowanie o szerokości 1 piksela i kolorze szarym. */
+
+}
+
+/* Styl dla opisującej sekcji */
+.form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+.form-section label {
+    margin: 0;        /* usuwa marginesy (odstępy) wokół elementu paragrafu, co pomaga w dopasowaniu tekstu do innych elementów*/
+    font-size: 14px;  /* ustawia rozmiar czcionki na 14 pikseli.*/
+    color: #666;      /* ustawia kolor tekstu na odcień szarości (#666), co może być przyjemne dla czytelności tekstu na tle.*/
+}
+
+/* Styl dla pola wyboru dostępnych rodzajów wydatków */
+
+#admin-available-expense-types {
+    width: 190px; /* Możesz dostosować szerokość według potrzeb */
+    height: 35px; /* Wysokość pola */
+    padding: 6px; /* Wewnętrzny padding */
+    font-size: 15px; /* Rozmiar tekstu */
+    border: 1px solid #ccc; /* Ramka */
+    border-radius: 4px; /* Zaokrąglenie rogów */
+    margin-top: 8px; /* Odległość od górnego marginesu */
+    margin-bottom: 16px; /* Odległość od dolnego marginesu */
+    margin-left: 0px; /* Przesunięcie w lewo */
+}
+
+/* Dostosuj wygląd opcji w polu select */
+#admin-available-expense-types option {
+    font-size: 14px;
+}
+#receipt-type {
+  width: 140px; /* Możesz dostosować szerokość według potrzeb */
+   height: 35px; /* Wysokość pola */
+   padding: 6px; /* Wewnętrzny padding */
+   font-size: 15px; /* Rozmiar tekstu */
+   border: 1px solid #ccc; /* Ramka */
+   border-radius: 4px; /* Zaokrąglenie rogów */
+   margin-top: 8px; /* Odległość od górnego marginesu */
+   margin-bottom: 16px; /* Odległość od dolnego marginesu */
+   margin-left: 0px; /* Przesunięcie w lewo */
+}
+
+/* Kontener dla przycisków */
+.button-container {
+    display: flex; /* Układ flexbox */
+    align-items: center; /* Wyśrodkowanie elementów w pionie */
+    justify-content: center; /* Wyśrodkowanie elementów w poziomie */
+    margin-left: 20px; /* Margines lewy automatyczny dla wyrównania do prawej */
+    margin-right: auto; /* Margines prawy automatyczny dla wyrównania do lewej */
+}
+
+/* Kolumna przycisków */
+.button-column {
+    flex: 1; /* Równa przestrzeń dla obu kolumn przycisków */
+    text-align: center; /* Wyśrodkowanie tekstu wewnątrz kolumny */
+    display: flex;
+    align-items: center;
+}
+/* Styl dla przycisków Edytuj i Zapisz */
+.edit-button {
+    width: 150px; /* Szerokość przycisków */
+    height: 32px; /* Wysokość przycisków */
+    text-align: center; /* Wyśrodkowanie tekstu wewnątrz przycisków */
+    margin: 20px; /* Równe odległości między przyciskami */
+    cursor: pointer; /* Kursor wskazujący na interakcję */
+    display: flex; /* Ustawienie elementów w trybie flexbox */
+    align-items: center; /* Wyśrodkowanie zawartości w pionie */
+    justify-content: center; /* Wyśrodkowanie zawartości w poziomie */
+    margin-right: 150px; /* Dodaj margines między przyciskami */
+
+}
+.edit-button {
+    background-color: orange; /* Tło przycisku Edytuj */
+    color: black; /* Kolor tekstu */
+    border: none; /* Brak obramowania */
+    padding: 10px 20px; /* Wewnętrzne wypełnienie przycisku */
+}
+
+.save-button {
+    background-color: blue; /* Tło przycisku Zapisz */
+    color: white; /* Kolor tekstu */
+    border: none; /* Brak obramowania */
+    padding: 10px 20px; /* Wewnętrzne wypełnienie przycisku */
+    margin-right: 25px; /* Dostosuj wartość marginesu według potrzeb */
+}
+/* Style dla pola e-mail */
+.form-section input[type="email"] {
+    width: 32%; /* Szerokość pola na całą dostępną przestrzeń */
+    padding: 10px; /* Wypełnienie wewnętrzne pola */
+    font-size: 16px; /* Rozmiar tekstu */
+    border: 1px solid #ccc; /* Ramka wokół pola */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+    box-sizing: border-box; /* Wewnętrzna szerokość obejmuje również obramowanie */
+    margin-top: 5px; /* Odległość od góry */
+    margin-left: 5px;
+}
+/*//////////////////////Formularz dodatkowy/////////////////////////////////*/
+/* Styl dla całego formularza */
+#formContainer {
+    display: none;
+    width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+}
+
+/* Styl dla nagłówka formularza */
+#formContainer h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* Styl dla etykiet i pól formularza */
+#formContainer label,
+#formContainer input {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#formContainer input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Styl dla przycisku */
+#formContainer button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#formContainer button:hover {
+    background-color: #0056b3;
+}
+
+/* Styl dla przycisku "Złóż wniosek o zwrot kosztów" */
+#showFormBtn {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#showFormBtn:hover {
+    background-color: #218838;
+}
+
+

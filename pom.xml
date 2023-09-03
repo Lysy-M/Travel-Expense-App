@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>AstekTravel</groupId>
+    <artifactId>AstekTravel</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>16</maven.compiler.source>
+        <maven.compiler.target>16</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <!-- Inne zależności -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-web</artifactId>
+            <version>16</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>16</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>16</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.15.3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>3.12.4</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version> <!-- Aktualna wersja pluginu -->
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>WebViewExample</mainClass>
+                        </manifest>
+                    </archive>
+
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version> <!-- lub inna dostępna wersja WebViewExampleHelloJavaFXApp-->
+                <configuration>
+                    <mainClass>WebViewExample</mainClass>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.1.2</version> <!-- Aktualna wersja pluginu -->
+                <configuration>
+                    <reportsDirectory>${basedir}/target/surefire-reports/TEST-*.xml</reportsDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <repositories>
+        <repository>
+            <id>openjfx</id>
+            <url>https://repo.maven.apache.org/maven2/org/openjfx/</url>
+        </repository>
+    </repositories>
+
+</project>
+<!--        //${project.build.directory}/surefire-reports-->
+<!--        Uruchomienie testów i generowanie raportów:-->
+<!--        mvn clean test-->
+
+<!--        Uruchomienie testów, generowanie raportów i instalacja artefaktu (jar) do repozytorium lokalnego:-->
+<!--        mvn clean install-->
+
+<!--        Jeśli chcesz specyficznie uruchomić testy za pomocą pluginu Surefire:-->
+<!--        mvn surefire:test-->

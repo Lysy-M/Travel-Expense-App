@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="/static/styles.css" rel="stylesheet" />
+    <!--     Dołączanie stylów dla biblioteki Flatpickr -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/flatpickr.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/flatpickr.min.js"></script>
+
+    <title>Travel Expense App</title>
+  </head>
+  <body>
+    <div class="container">
+      <form>
+        <h1>Travel Expense App</h1>
+        <div id="expense-form">
+          <!-- Sekcja: Data podróży -->
+          <div class="form-row">
+            <div class="form-section wide-date-field">
+              <label for="travel-date">Data podróży (od):</label>
+              <input id="travel-date" name="travel-date" type="date"/> 
+            </div>
+            <!-- Sekcja: Druga data podróży -->
+            <div class="form-section wide-date-field">
+              <label for="second-travel-date">Data podróży (do):</label>
+              <input
+                id="second-travel-date"
+                name="second-travel-date"
+                type="date"
+              />
+            </div>
+            <div class="form-section">
+              <label for="total-travel-days">Suma dni podróży:</label>
+              <input
+                disabled
+                id="total-travel-days"
+                name="total-travel-days"
+                type="number"
+              />
+            </div>
+          </div>
+
+          <!-- Sekcja: Paragony -->
+          <div class="form-section">
+            <label for="receipt-type">Dodaj paragon:</label>
+            <select id="receipt-type" name="receipt-type">
+              <option value="empty">...</option>
+              <option value="TAXI">TAXI</option>
+              <option value="Hotel">Hotel</option>
+              <option value="Flight">Flight</option>
+              <option value="Train">Train</option>
+              <option value="Other">Other</option>
+            </select>
+            <div class="total-receipts-field" id="total-receipts-field"></div>
+          </div>
+          <ul class="receipt-list" id="receipt-list"></ul>
+
+          <!-- Sekcja: Diet -->
+          <div class="form-section">
+            <label for="apply-diet">Zastosuj dietę:</label>
+            <input id="apply-diet" name="apply-diet" type="checkbox" />
+            <div class="date-input">
+              <input
+                class="flatpickr-input"
+                id="disable-diet"
+                name="disable-diet"
+                placeholder="Wyłącz dietę w dniach"
+                readonly="readonly"
+                style="width: 300px"
+                type="text"
+              />
+            </div>
+          </div>
+
+          <!-- Sekcja: Samochód -->
+          <div class="form-section">
+            <label for="apply-car">Zastosuj przebieg samochodu:</label>
+            <input id="apply-car" name="apply-car" type="checkbox" />
+            <label for="car-distance">Przejechany dystans (km):</label>
+            <input
+              id="car-distance"
+              name="car-distance"
+              step="0.01"
+              type="number"
+            />
+          </div>
+
+          <!-- Sekcja: Całkowity zwrot kosztów -->
+          <div class="form-section">
+            <label for="total-amount">Całkowity zwrot kosztów:</label>
+            <input disabled id="total-amount" name="total-amount" type="text" />
+          </div>
+
+          <!-- Przycisk: Złóż wniosek o zwrot kosztów -->
+          <div class="form-section">
+            <button type="submit">Złóż wniosek o zwrot kosztów</button>
+          </div>
+        </div>
+
+        <!-- Sekcja: Opcje Administratora -->
+        <div id="admin-options-section" style="display: none">
+          <h2>Opcje Administratora</h2>
+          <div class="admincontainer">
+            <div class="column">
+              <div class="form-section">
+                <label for="admin-daily-diet-rate"
+                  >Dzienna stawka diety ($):</label
+                >
+                <input
+                  id="admin-daily-diet-rate"
+                  class="editable-field"
+                  name="admin-daily-diet-rate"
+                  step="0.01"
+                  type="number"
+                  value="15"
+                  readonly
+                  required
+                />
+              </div>
+              <div class="form-section">
+                <label for="admin-car-mileage-rate"
+                  >Stawka za przebieg samochodu (USD/km):</label
+                >
+                <input
+                  id="admin-car-mileage-rate"
+                  class="editable-field"
+                  name="admin-car-mileage-rate"
+                  step="0.01"
+                  type="number"
+                  value="0.3"
+                  readonly
+                  required
+                />
+              </div>
+              <div class="form-section">
+                <label for="admin-available-expense-types"
+                  >Dostępne rodzaje wydatków:</label
+                >
+                <select
+                  id="admin-available-expense-types"
+                  class="editable-field"
+                  name="admin-available-expense-types"
+                >
+                  <!-- Dodaj opcje dostępnych rodzajów wydatków tutaj -->
+                  <option value="empty">...</option>
+                  <option value="TAXI">TAXI</option>
+                  <option value="Hotel">Hotel</option>
+                  <option value="Flight">Flight</option>
+                  <option value="Train">Train</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="column">
+              <div class="form-section">
+                <label for="admin-expense-type-limits"
+                  >Limity rodzajów wydatków:</label
+                >
+                <input
+                  id="admin-expense-type-limits"
+                  class="editable-field"
+                  min="0"
+                  name="admin-expense-type-limits"
+                  step="0.01"
+                  type="number"
+                  value="5000"
+                  readonly
+                  required
+                />
+              </div>
+              <div class="form-section">
+                <label for="admin-total-expense-limit"
+                  >Całkowity limit wydatków:</label
+                >
+                <input
+                  id="admin-total-expense-limit"
+                  class="editable-field"
+                  min="0"
+                  name="admin-total-expense-limit"
+                  step="0.01"
+                  type="number"
+                  value="10000"
+                  readonly
+                  required
+                />
+              </div>
+              <div class="form-section">
+                <label for="admin-car-distance-limit"
+                  >Odległość graniczna dla samochodu:</label
+                >
+                <input
+                  id="admin-car-distance-limit"
+                  class="editable-field"
+                  min="0"
+                  name="admin-car-distance-limit"
+                  step="0.01"
+                  type="number"
+                  value="20"
+                  readonly
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Sekcja: Adres e-mail -->
+          <div class="form-section">
+            <label for="email">Adres e-mail:</label>
+            <input
+              id="email"
+              class="editable-field"
+              name="email"
+              type="email"
+              readonly
+              required
+            />
+            <!--                <button id="editEmailButton" type="button">Edytuj</button>-->
+          </div>
+          <div class="button-column">
+            <button class="edit-button" id="admin-edit-button">Edytuj</button>
+            <button class="save-button" id="admin-save-changes-button">
+              Zapisz zmiany
+            </button>
+          </div>
+        </div>
+        <!-- Przycisk: Wyświetlenie opcji administratora -->
+        <div class="form-section">
+          <button id="admin-options-button" type="button">
+            Opcje Administratora
+          </button>
+        </div>
+        <!-- <div id="formContainer" style="display: none;">
+          <h2>Podsumowanie kosztów podróży</h2>
+          <form id="costsForm">
+              <label for="paragonCount">Ilość paragonów:</label>
+              <input type="number" id="paragonCount" name="paragonCount">
+              
+              <!-- Dodaj pozostałe pola formularza tutaj -->
+              
+              <!-- <button type="submit">Wyślij wniosek</button>
+          </form>
+      </div> --> -->
+      </form>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+  </body>
+</html>
