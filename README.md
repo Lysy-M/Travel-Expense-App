@@ -1,5 +1,7 @@
 # Travel-Expense-App ( W trakcie prac )
 
+Jest to moja pierwsza aplikacja jakiej się podjąłem i nie myslałem że będzie ona tak bardzo rozbudowana. Budując jedną funkcję wpadałem na pomysł na kolejną funkcję no trochę linijek kodu przybyło. Na tą chwilę pracuję nad uporządkowaniem kodu i rozdzieleniem funkcji na kilka plików (obiekty) oraz mam niewielki problem z działaniem funkcji "edytuj" i "zapisz". Pewnie bedę musiał kilka funkcji porozbijać na mniejsze funkcje...
+
 Aplikacja ma na celu obsługę interakcji z użytkownikiem i wykonywanie różnych obliczeń związanych z podróżami służbowymi, kosztami diety, wydatkami podróży np. Hotel, Pociąg itd. oraz przebiegiem samochodu.
 Aplikacja posiada dwie sekcje:
 
@@ -13,7 +15,7 @@ Zaznaczanie dni diety: Użytkownik może wybierać daty, w których dieta ma by�
 Obliczanie kosztów: Na podstawie wprowadzonych danych, użytkownik może obliczać łączny koszt podróży, uwzględniający diety, przebieg samochodu oraz koszty paragonów.
 Sekcja dla użytkownika koncentruje się na dostarczeniu interfejsu umożliwiającego użytkownikowi wprowadzanie danych związanych z podróżą oraz obliczanie kosztów na podstawie tych danych.
 
-Sekcja Dla Administratora: ( Dostęp przy uzyciu kodu PIN i edycja stawek w fazie budowy )
+Sekcja Dla Administratora: ( Dostęp przy uzyciu kodu PIN 0000 i edycja stawek w fazie budowy )
 
 Ta sekcja zawiera funkcje i interakcje, które są dostępne tylko dla administratora aplikacji. Administrator ma dostęp do zaawansowanych opcji i ustawień, które mogą wpłynąć na sposób działania aplikacji. Główne funkcje w tej sekcji to:
 
